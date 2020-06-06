@@ -29,11 +29,13 @@ d3.csv("data.csv").then(function(data) {
   });
 
 // scales
-  var xLinearScale = d3.scaleLinear().domain(d3.extent(data, d=> d.poverty))
+  var xLinearScale = d3.scaleLinear()
+  .domain(d3.extent(data, d=> d.poverty))
   .range([0, width]);
 
-  var yLinearScale = d3.scaleLinear().domain([0, d3.max(data, d=> d.healthcare)])
-  range([height, 0]);
+  var yLinearScale = d3.scaleLinear()
+  .domain([0, d3.max(data, d=> d.healthcare)])
+  .range([height, 0]);
 
 // Create axes
   var bottomAxis = d3.axisBottom(xLinearScale).ticks(5);
