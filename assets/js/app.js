@@ -23,6 +23,7 @@ var chartGroup = svg.append("g")
 
 // Import Data
 d3.csv("data.csv").then(function(data) {
+  data.forEach(function(data) {
     data.poverty = +data.poverty;
     data.healthcare = +data.healthcare;
   });
@@ -86,8 +87,7 @@ var circlesGroup = chartGroup.selectAll("circle")
     .style("font", "11px times")
     .style("fill", "white")
     .style("font-weight", "bold")
-  
-}).catch(function(error) {
-  console.log(error);
-});
-  
+
+  }).catch(function(error) {
+    console.log(error);
+  });
